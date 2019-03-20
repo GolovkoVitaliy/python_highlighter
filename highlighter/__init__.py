@@ -43,10 +43,8 @@ def create_app():
         @:param expr - string pattern to be searched in the text (e.g., 'th')
         @:return marked text, e.g., "<mark>Th</mark>e sun in <mark>th</mark>e sky"."""
 
-        if expr in text:
-            text = text.replace(expr, markup_text(expr))
+        text = text.replace(expr.lower(), markup_text(expr).lower())
         result = text
-
         return result
 
     return app
